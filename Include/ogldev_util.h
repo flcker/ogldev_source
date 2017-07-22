@@ -52,6 +52,7 @@ void OgldevFileError(const char* pFileName, uint line, const char* pFileError);
 #define RANDOM rand
 #define SRANDOM srand((unsigned)time(NULL))
 #if (_MSC_VER == 1900)
+#elif ( _MSC_VER == 1910)
 #elif (_MSC_VER == 1800)
 #else
 float fmax(float a, float b);

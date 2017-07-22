@@ -77,9 +77,23 @@ char* ReadBinaryFile(const char* pFileName, int& size)
     }
 
     // wip for tutorial51
-    assert(0);
+    //assert(0);
 
-    return true;
+	char* p = (char*)malloc(size);
+	assert(p);
+	
+	DWORD read_len;
+	ReadFile(f, p, size, &read_len, nullptr);
+
+	if (read_len != size) {
+		OGLDEV_ERROR("Error reading file: %s\n", strerror(errno));
+		return NULL;
+	}
+
+	FindClose(f);
+	return p;
+
+    //return true;
 }
 
 #else
@@ -163,6 +177,7 @@ long long GetCurrentTimeMillis()
 
 #ifdef WIN32
 #if (_MSC_VER == 1900)
+#elif (_MSC_VER == 1910)
 #elif (_MSC_VER == 1800)
 #else
 float fmax(float a, float b)
