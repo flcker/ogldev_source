@@ -23,10 +23,16 @@ Makefile-Release.mk
 
 *.log
 
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
 *.ipch
 
 *.unsuccessfulbuild
 
-*.opensdf
 
-*/ogldev/.vs/*
